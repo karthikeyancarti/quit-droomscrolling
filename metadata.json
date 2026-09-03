@@ -1,0 +1,8 @@
+{
+  "name": "Quit Droomscrolling",
+  "description": "Quit Droomscrolling — A mindful, human-first recruitment platform. Stop resume doomscrolling and connect with real talent through transparent matching, anti-fatigue pacing, and empathetic candidate care.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
