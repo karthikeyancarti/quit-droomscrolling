@@ -31,6 +31,8 @@ interface NavbarProps {
   onOpenReadme: () => void;
   onSwitchRole: (role: 'admin' | 'recruiter' | 'interviewer') => void;
   needsReviewCount: number;
+  theme: 'light' | 'dark';
+  onToggleTheme: (isDark: boolean) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -48,7 +50,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenNewJob,
   onOpenReadme,
   onSwitchRole,
-  needsReviewCount
+  needsReviewCount,
+  theme,
+  onToggleTheme
 }) => {
   return (
     <header className="sticky top-0 z-30 bg-[#fefdfb] border-b border-stone-200/90 shadow-2xs">
@@ -88,14 +92,27 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <div className="h-3 w-px bg-stone-700 hidden sm:block" />
 
-          <button
-            id="readme-nav-button"
-            onClick={onOpenReadme}
-            className="flex items-center gap-1.5 text-stone-300 hover:text-white transition text-xs"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-            <span>Human Manifesto & Scoring</span>
-          </button>
+          <div className="flex items-center gap-2.5">
+            <button
+              id="readme-nav-button"
+              onClick={onOpenReadme}
+              className="flex items-center gap-1.5 text-stone-300 hover:text-white transition text-xs"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+              <span>Human Manifesto & Scoring</span>
+            </button>
+
+            <label htmlFor="theme-switch" className="switch" aria-label="Toggle light and dark theme">
+              <input
+                id="theme-switch"
+                type="checkbox"
+                checked={theme === 'dark'}
+                onChange={(event) => onToggleTheme(event.target.checked)}
+              />
+              <span className="slider" />
+              <span className="decoration" />
+            </label>
+          </div>
         </div>
       </div>
 
