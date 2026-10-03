@@ -85,20 +85,85 @@ $$\text{Composite Score} = (S_{\text{exact}} \times 0.45) + (S_{\text{semantic}}
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/your-org/quit-droomscrolling.git
+git clone https://github.com/karthikeyancarti/quit-droomscrolling.git
 cd quit-droomscrolling
 
 # 2. Install dependencies
 npm install
 
-# 3. Start unified dev server (Express backend + Vite frontend on port 3000)
+# 3. Start the app
 npm run dev
 
-# 4. Open in browser
-open http://localhost:3000
+# 4. Open the app in the browser
+http://localhost:3000
 ```
 
-### Testing the Ingest Flow
-- Click **"Upload Resume"** in the top navigation.
-- Use the one-click demo presets (*"Senior Full Stack Lead (95% Fit)"*, *"Cloud Architect (92% Fit)"*, or *"Low Confidence Sample"*) or drag and drop any local `.pdf`, `.docx`, or `.txt` file.
-- View the multi-step async progress and inspect the parsed profile immediately in the Kanban board.
+### Production Build
+
+```bash
+npm run build
+npm run start
+```
+
+### Project Structure
+
+```text
+quit-droomscrolling/
+├── src/                     # React + TypeScript frontend
+│   ├── components/         # ATS UI modules and drawers
+│   ├── App.tsx             # Main app composition
+│   ├── index.css           # Tailwind + custom styling
+│   └── types.ts            # Shared app types
+├── server/                 # Express backend + parsing logic
+│   ├── routes/             # API endpoints
+│   ├── auth.ts             # Auth/session helpers
+│   ├── db.ts               # Local data layer
+│   ├── matcher.ts          # Matching heuristics
+│   └── nlp.ts              # Resume parsing and extraction
+├── public/                 # Static assets
+├── server.ts               # Express server entry point
+├── package.json            # Scripts and dependencies
+├── vite.config.ts          # Vite config
+├── tsconfig.json           # TypeScript config
+├── README.md               # Project documentation
+├── metadata.json           # App metadata
+├── data_quitdroomscrolling.json
+└── .env.example            # Environment example file
+```
+
+### Demo Workflow
+
+1. Launch the app and choose a recruiter or interviewer role.
+2. Review the pipeline board and candidate cards.
+3. Upload a resume or use a demo preset.
+4. Inspect the explainable match score and candidate journey details.
+5. Schedule interviews via the public candidate slot flow.
+6. Evaluate whether the candidate should move forward or be routed to human review.
+
+### Environment Notes
+
+- The app is designed for local development and demo usage.
+- The backend includes a lightweight JSON-based data layer and file parsing for PDF/DOCX/TXT resumes.
+- Social sign-in is presented as a preview-only UI for demo purposes.
+- No external production database or auth provider is required for the default setup.
+
+### Deployment Notes
+
+This project is currently structured for local or small-scale deployment using Node.js and Express. For production deployment, you would typically add:
+- a real database layer
+- secure authentication and session management
+- environment variables for secrets
+- an object storage or file processing service for uploaded resumes
+- CI/CD and container deployment automation
+
+### Related Links
+
+- GitHub: https://github.com/karthikeyancarti/quit-droomscrolling
+- LinkedIn: https://www.linkedin.com/in/karthikeyan-d-804269298
+- GitHub Profile: https://github.com/karthikeyancarti
+
+---
+
+## Summary
+
+Quit Droomscrolling is a human-first recruiting workflow that replaces endless resume doomscrolling with context, transparency, and respect. It helps hiring teams review candidates more thoughtfully while making the process explainable to both recruiters and applicants.
