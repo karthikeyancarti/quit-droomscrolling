@@ -2,6 +2,12 @@
 
 > A mindful, human-first Applicant Tracking System designed to end resume doomscrolling and opaque automated rejections. Delivers transparent, explainable alignment perspectives with warm typography, respectful scheduling, and zero algorithmic discard.
 
+## Screenshots
+
+### Recruiter Pipeline
+
+![Quit Droomscrolling recruiter pipeline dashboard](public/screenshots/dashboard.png)
+
 ---
 
 ## Why Quit Droomscrolling?
